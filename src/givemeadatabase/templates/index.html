@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  .alert {
+    border: 5px dashed black;
+    background: yellow;
+    padding: 1.5em;
+    font-size: 1.5em;
+  }
+
+  .code-sample {
+    border: 10px solid #d1d2d4;
+    padding: 10px;
+  }
+  </style>
+
+  {% if db_connection %}
+    <h1>Here is your database!</h1>
+
+
+      Username: {{ db_connection['username'] }}<br />
+      Password: {{ db_connection['password'] }}<br />
+      Hostname: {{ db_connection['hostname'] }}<br />
+      Port:     {{ db_connection['port'] }}<br />
+      Database Name: {{ db_connection['db_name'] }}<br />
+
+      <hr />
+      <small>Same info as json</small>:<br />
+      <p>{{ db_connection }}</p>
+
+
+      <h2>Example python app which connects to your database:</h2>
+
+      Python code sample how to connect to your database:
+      <div class="code-sample">
+      <pre>engine = create_engine(
+          "mysql+pymysql://{{ db_connection['username'] }}:{{ db_connection['password'] }}@{{ db_connection['hostname'] }}:{{ db_connection['port'] }}/{{ db_connection['db_name'] }}?charset=utf8mb4",
+          pool_pre_ping=True)</pre>
+      </div>
+
+      <p>Update the code below with your connection details from above:</p>
+
+      <div class="code-sample">
+        <pre>{% include 'example-app-python-app.py' %}</pre>
+      </div>
+
+      <div class="alert">
+        <em>Warning:</em> Only use for testing and experimentation.
+      </div>
+  {% else %}
+
+    <h1>Give me a database</h1>
+
+    {% if 'text' in msg %}
+      <div class="alert">
+          {{ msg['text'] }}
+      </div>
+    {% endif %}
+
+    Sick and tired of complex cloud? Just want an SQL database?</br>
+
+    Use this to get a database instantly and start coding.
+    <ul>
+
+      <li>Automatically backed-up</li>
+      <li>Which I can restore back in time</li>
+      <li>Connections are over a secure connection</li>
+    </ul>
+
+    <form method="POST">
+      <input type="submit" value="Give me a database, like now!" onclick="showMesage()" />
+    </form>
+
+    <script>
+    function showMesage() {
+      alert("Creating your database now!\n\nThe next page will give you the connection settings for your database.");
+    }
+    </script>
+
+  {% endif %}
+
+</html>
