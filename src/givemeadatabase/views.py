@@ -22,6 +22,8 @@ def create_database():
         )
         if "ERROR 1007" in cmd.stderr.decode("utf-8"):
             msg["text"] = "ERROR 1007, database already exists"
+        elif "ERROR" in cmd.stderr.decode("utf-8"):
+            msg["text"] = cmd.stderr.decode("utf-8")
         else:
             msg["text"] = cmd.stdout.decode("utf-8")
     except Exception as e:  # noqa: F841
