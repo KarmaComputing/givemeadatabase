@@ -15,7 +15,7 @@ Press the button below and you'll get:
 - Example code showing how to use it in your code, please contribute example code
 
 ### How is this built?
-It it built ontip of the (much unknown?) Tidb datbase which is Mysql compatible mostly.
+It it built ontop of the (much unknown?) TiDB datbase which is Mysql compatible mostly.
 https://blog.karmacomputing.co.uk/tidb-sql-database-newsql/
 
 # Self-hosting if you want to (day0)
