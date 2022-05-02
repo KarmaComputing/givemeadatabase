@@ -1,4 +1,18 @@
-#day0
+# (Just) Give me a database
+
+See https://db.anotherwebservice.com/
+
+Use this to get an SQL database instantly and start coding.
+- Sick and tired of complex cloud?
+- Too many options?
+- Just want an SQL database?
+
+Press the button below and you'll get:
+
+- An SQL database with the connection details you need to access it
+- Example code showing how to use it
+
+# How to self-host if you want to (day0)
 
 ```
 
