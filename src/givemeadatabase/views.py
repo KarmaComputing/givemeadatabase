@@ -30,6 +30,9 @@ def create_database():
         msg["text"] = f"Unknown error creating database: {e}"
 
     if no_errors:
-        db_connection = json.loads(msg["text"])
+        try:
+            db_connection = json.loads(msg["text"])
+        except json.decoder.JSONDecodeError as e:
+            print(f"could not decode {e}")
 
     return render_template("index.html", msg=msg, db_connection=db_connection)
