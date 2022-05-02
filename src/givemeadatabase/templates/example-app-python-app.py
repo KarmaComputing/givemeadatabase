@@ -16,4 +16,4 @@ def hello_world():
         result = con.execute("SELECT NOW()")
         for row in result:
             print(row)
-        return f"hello from app<br />Result of NOW() from database: {row}"
+        return f"hello from app, Result of NOW() from database: {row}"
