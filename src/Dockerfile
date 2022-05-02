@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 RUN pip install --upgrade pip
 RUN apk add --update --no-cache build-base \
     libffi-dev openssl-dev bash git gcc sqlite \
-    curl
+    curl pwgen mysql-client
 
 COPY . /usr/src/app/givemeadatabase/
 WORKDIR /usr/src/app/givemeadatabase/
