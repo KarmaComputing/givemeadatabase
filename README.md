@@ -1,5 +1,7 @@
 # (Just) Give me a database
 
+SQL Database as a service.
+
 See https://db.anotherwebservice.com/
 
 Use this to get an SQL database instantly and start coding.
@@ -10,10 +12,20 @@ Use this to get an SQL database instantly and start coding.
 Press the button below and you'll get:
 
 - An SQL database with the connection details you need to access it
-- Example code showing how to use it
+- Example code showing how to use it in your code, please contribute example code
 
-# How to self-host if you want to (day0)
+### How is this built?
+It it built ontip of the (much unknown?) Tidb datbase which is Mysql compatible mostly.
+https://blog.karmacomputing.co.uk/tidb-sql-database-newsql/
 
+# Self-hosting if you want to (day0)
+
+> **Note**: You can ignore everything below if you [just want a database](https://db.anotherwebservice.com/).
+
+
+<details>
+  <summary>See self hosting</summary>
+  
 ```
 
 ./day0.sh segfault.app 3 1 cx31 ubuntu-20.04
@@ -54,11 +66,11 @@ tiup cluster start tidb-test --init
 # get initial password
 ```
 
-# Visit dashboard
+## Visit dashboard
 
 http://$TIDB_PANEL_ADDRESS:2379/dashboard/#/signin
 
-# Verify can connect to the database remotely
+## Verify can connect to the database remotely
 
 ```
 $ mysql -u root -h $TIDB_HOSTNAME -P 4000 -p
@@ -75,8 +87,10 @@ MySQL [(none)]> create database yolo;
 Query OK, 0 rows affected (0.573 sec)
 ```
 
-# remove
+## remove
 
 ```
 ./destroy-all.sh
 ```
+  
+</details>
