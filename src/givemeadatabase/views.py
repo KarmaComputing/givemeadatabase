@@ -33,6 +33,6 @@ def create_database():
         try:
             db_connection = json.loads(msg["text"])
         except json.decoder.JSONDecodeError as e:
-            print(f"could not decode {e}")
+            print(f"could not decode {e}. cmd: {cmd.stderr.decode('utf-8')}")
 
     return render_template("index.html", msg=msg, db_connection=db_connection)
