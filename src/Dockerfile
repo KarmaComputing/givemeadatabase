@@ -12,5 +12,6 @@ WORKDIR /usr/src/app/givemeadatabase/
 RUN pip install -r requirements.txt
 RUN pip install uwsgi
 RUN export FLASK_APP=givemeadatabase;
+ENV PYTHONUNBUFFERED=1
 EXPOSE 80
 ENTRYPOINT [ "./entrypoint.sh" ]
