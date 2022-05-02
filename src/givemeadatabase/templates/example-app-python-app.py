@@ -12,7 +12,6 @@ engine = create_engine(
 
 @app.route("/")
 def hello_world():
-    engine.connect()  # Verify database connection
     with engine.connect() as con:
         result = con.execute("SELECT NOW()")
         for row in result:
