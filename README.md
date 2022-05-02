@@ -22,12 +22,9 @@ https://blog.karmacomputing.co.uk/tidb-sql-database-newsql/
 
 > **Note**: You can ignore everything below if you [just want a database](https://db.anotherwebservice.com/).
 
-
 <details>
   <summary>See self hosting</summary>
-  
 ```
-
 ./day0.sh segfault.app 3 1 cx31 ubuntu-20.04
 ```
 
