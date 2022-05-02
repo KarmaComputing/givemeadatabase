@@ -2,6 +2,10 @@
 <html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+  body {
+    font-family: sans-serif;
+    padding: 1em;
+  }
   .alert {
     border: 5px dashed black;
     background: yellow;
@@ -12,6 +16,12 @@
   .code-sample {
     border: 10px solid #d1d2d4;
     padding: 10px;
+  }
+  
+  .btn {
+    padding: 0.5em;
+    margin: 1em;
+    font-size: 1.25em;
   }
   </style>
 
@@ -44,13 +54,19 @@
       <div class="code-sample">
         <pre>{% include 'example-app-python-app.py' %}</pre>
       </div>
+      <br />
+      <div class="code-sample">
+        To use the above code, you'll also need to pip install the requirements: e.g<br />
+        pip install flask<br />
+        pip install sqlalchemy<br />
+      </div>
 
       <div class="alert">
         <em>Warning:</em> Only use for testing and experimentation.
       </div>
   {% else %}
 
-    <h1>Give me a database</h1>
+    <h1>(Just) Give me a database!</h1>
 
     {% if 'text' in msg %}
       <div class="alert">
@@ -58,23 +74,28 @@
       </div>
     {% endif %}
 
-    Sick and tired of complex cloud? Just want an SQL database?</br>
 
-    Use this to get a database instantly and start coding.
+    Use this to get an SQL database instantly and start coding.
     <ul>
+      <li>Sick and tired of complex cloud?</li>
+      <li><a href="https://www.youtube.com/watch?v=BtJAsvJOlhM">Too many options</a>?</li>
+      <li>Just want an SQL database?</li>
+    </ul>
 
-      <li>Automatically backed-up</li>
-      <li>Which I can restore back in time</li>
-      <li>Connections are over a secure connection</li>
+    <p>Press the button below and you'll get:</p>
+
+    <ul>
+      <li>An SQL database with the connection details you need to access it</li>
+      <li>Example code showing how to use it</li>
     </ul>
 
     <form method="POST">
-      <input type="submit" value="Give me a database, like now!" onclick="showMesage()" />
+      <input type="submit" class="btn" value="Give me a database, like now!" onclick="showMesage()" />
     </form>
 
     <script>
     function showMesage() {
-      alert("Creating your database now!\n\nThe next page will give you the connection settings for your database.");
+      alert("Creating your database now!\n\nThe next page will give you the connection settings to connect to your database.");
     }
     </script>
 
