@@ -18,10 +18,3 @@ def hello_world():
         for row in result:
             print(row)
         return f"hello from app<br />Result of NOW() from database: {row}"
-
-    return "hello app2"
-
-
-@app.route("/test", methods=["POST"])
-def test():
-    return "post recieved to app"
