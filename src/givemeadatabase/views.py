@@ -1,5 +1,5 @@
 from givemeadatabase import application as app
-from flask import render_template
+from flask import render_template, request, jsonify
 import subprocess
 import json
 
@@ -14,6 +14,7 @@ def create_database():
     msg = {}
     no_errors = True
     db_connection = False
+    requested_json = request.args.get("json", False)
     try:
         cmd = subprocess.run(
             app.config["CREATE_DATABASE_SCRIPT_PATH"],
@@ -35,4 +36,7 @@ def create_database():
         except json.decoder.JSONDecodeError as e:
             print(f"could not decode {e}. cmd: {cmd.stderr.decode('utf-8')}")
 
-    return render_template("index.html", msg=msg, db_connection=db_connection)
+    if requested_json:
+        return jsonify(db_connection)
+    else:
+        return render_template("index.html", msg=msg, db_connection=db_connection)
