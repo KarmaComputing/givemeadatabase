@@ -2,10 +2,11 @@
 <html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Just give me a database! - SQL Database SaaS</title>
-  <style>
+<style>
   body {
     font-family: sans-serif;
     padding: 1em;
+    font-size: 1.3em;
   }
   .alert {
     border: 5px dashed black;
@@ -69,6 +70,7 @@
   {% else %}
 
     <h1>(Just) Give me a database!</h1>
+    <img src="{{ url_for('static', filename='db-another-webservice.png') }}" style="float: left; max-width: 500px"/>
 
     {% if 'text' in msg %}
       <div class="alert">
@@ -77,10 +79,12 @@
     {% endif %}
 
 
-    Use this to get an SQL database instantly and start coding.
+    <h2>Setup an SQL database quickly</h2>
+    <p>Use this to get an SQL database instantly and start coding.</p>
+
     <ul>
       <li>Sick and tired of complex cloud?</li>
-      <li><a href="https://www.youtube.com/watch?v=BtJAsvJOlhM">Too many options</a>?</li>
+      <li><a href="https://www.youtube.com/watch?v=BtJAsvJOlhM" target="_blank">Too many options</a>?</li>
       <li>Just want an SQL database?</li>
     </ul>
 
