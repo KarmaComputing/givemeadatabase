@@ -18,6 +18,17 @@ Press the button below and you'll get:
 It it built ontop of the (much unknown?) TiDB datbase which is Mysql compatible mostly.
 https://blog.karmacomputing.co.uk/tidb-sql-database-newsql/
 
+### How to connect on port 3306? `iptables example`
+
+By default you must connect over port `4000`, however sometimes applications you don't control must connect over `3306` (the default mysql port).
+
+In `iptables` you can manipulate the `DNAT` chain to re-write outgoing port connections to a different port (`3306`).
+
+```
+sudo iptables -t nat -A OUTPUT -p tcp --dport 3306 -j DNAT --to-destination :4000
+```
+[src](https://unix.stackexchange.com/a/85933)
+
 # Self-hosting if you want to (day0)
 
 > **Note**: You can ignore everything below if you [just want a database](https://db.anotherwebservice.com/).
