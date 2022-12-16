@@ -33,5 +33,6 @@ jobs:
           ssh dokku@${{ secrets.DOKKU_HOST }} -C "dokku git:sync --build givemeadatabase" https://github.com/KarmaComputing/givemeadatabase.git main
           ssh dokku@${{ secrets.DOKKU_HOST }} -C dokku domains:set db.anotherwebservice.com
           ssh dokku@${{ secrets.DOKKU_HOST }} -C dokku letsencrypt:enable givemeadatabase
+          ssh dokku@${{ secrets.DOKKU_HOST }} -C "dokku letsencrypt:cron-job --add"
           
 
