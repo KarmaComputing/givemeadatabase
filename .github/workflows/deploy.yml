@@ -8,7 +8,7 @@ on:
 jobs:
   Deploy:
     environment: production
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server."
@@ -32,6 +32,7 @@ jobs:
           ssh dokku@${{ secrets.DOKKU_HOST }} -C "dokku builder-dockerfile:set givemeadatabase dockerfile-path Dockerfile"
           ssh dokku@${{ secrets.DOKKU_HOST }} -C "dokku git:sync --build givemeadatabase" https://github.com/KarmaComputing/givemeadatabase.git main
           ssh dokku@${{ secrets.DOKKU_HOST }} -C dokku domains:set db.anotherwebservice.com
+          ssh dokku@${{ secrets.DOKKU_HOST }} -C "dokku config:set --no-restart givemeadatabase DOKKU_LETSENCRYPT_EMAIL=${{ secrets.LETSENCRYPT_EMAIL }}"
           ssh dokku@${{ secrets.DOKKU_HOST }} -C dokku letsencrypt:enable givemeadatabase
           ssh dokku@${{ secrets.DOKKU_HOST }} -C "dokku letsencrypt:cron-job --add"
           
