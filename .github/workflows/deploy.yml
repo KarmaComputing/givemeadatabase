@@ -29,4 +29,4 @@ jobs:
           ssh dokku@${{ secrets.DOKKU_HOST }} -C dokku builder:set givemeadatabase build-dir src
           ssh dokku@${{ secrets.DOKKU_HOST }} -C "dokku builder-dockerfile:set givemeadatabase dockerfile-path Dockerfile"
           ssh dokku@${{ secrets.DOKKU_HOST }} -C "dokku git:sync --build givemeadatabase" https://github.com/KarmaComputing/givemeadatabase.git main
-
+          ssh dokku@${{ secrets.DOKKU_HOST }} -C "dokku config:set givemeadatabase TIDB_HOSTNAME=${{ secrets.TIDB_HOSTNAME }}"
